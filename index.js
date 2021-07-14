@@ -47,7 +47,7 @@ function start() {
 document.querySelector('body').addEventListener('click', start)
 
 const play = (audioContext, sourceNode) => {
-    analyser = new Analyser(audioContext, ctx, { fftSize: 256 })
+    analyser = new Analyser(audioContext, ctx, { fftSize: 512 })
     analyser.start()
   
     sourceNode.connect(analyser.node)
@@ -93,26 +93,3 @@ function buildMatrix(h, v) {
 
     return matrix
 }
-
-// function drawGrid(h, v, startX, startY, radius, gap) {
-//     for (let i = 0; i < h; i++) {
-//         for (let k = 0; k < v; k++) {
-//             const x = i * (radius + radius + gap) + startX
-//             // const y = k * (radius + radius + gap) + startY
-//             const y = k * (radius + radius + gap) + (-(52 / 81796) * x * x + (29744 / 81796) * x) + startY
-
-//             const a = amps[i] < k ? 1 : 0
-//             ctx.beginPath()
-//             ctx.arc(x, y, radius, 0, Math.PI * 2)
-            
-//             ctx.fillStyle = `rgba(255, 0, 0, ${a})`
-            
-//             ctx.shadowColor = 'rgba(255, 0, 0, 1)'
-//             ctx.shadowBlur = 10
-
-//             ctx.closePath()
-//             ctx.fill()
-//         }
-//     }
-// }
-
